@@ -1,0 +1,13 @@
+Troubleshooting quick guide
+
+1) Pressure instability
+   - Check throttle valve response
+   - Verify gauge calibration
+
+2) Roughness spikes
+   - Inspect RF matching network
+   - Confirm gas ratio sensor stability
+
+3) Interpreting DoE
+   - For 2-level designs with coded factors (-1/+1), the regression coefficient corresponds to half the main effect.
+   - Fractional factorial designs can alias (confound) effects; confirm with follow-up runs.

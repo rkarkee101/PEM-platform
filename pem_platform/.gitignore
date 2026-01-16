@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+.dist/
+build/
+dist/
+
+# Virtual env
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+
+# Tooling
+.pytest_cache/
+.ruff_cache/
+
+# Outputs
+*.joblib
+*.parquet
+.rag_index/

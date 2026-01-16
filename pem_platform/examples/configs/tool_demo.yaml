@@ -1,0 +1,50 @@
+project_name: tool_demo
+
+factors:
+  - name: temperature_C
+    type: continuous
+    bounds: [150, 250]
+    units: C
+    description: "Chamber temperature setpoint"
+
+  - name: pressure_mTorr
+    type: continuous
+    bounds: [5, 50]
+    units: mTorr
+    description: "Chamber pressure"
+
+  - name: rf_power_W
+    type: discrete
+    levels: [50, 100, 150, 200]
+    units: W
+    description: "RF power"
+
+  - name: gas_ratio
+    type: continuous
+    bounds: [0.1, 0.9]
+    description: "Reactive gas ratio"
+
+  - name: chamber
+    type: categorical
+    levels: [A, B]
+    description: "Which chamber"
+
+responses:
+  - name: thickness_nm
+    goal: target
+    target: 100
+    units: nm
+
+  - name: roughness_nm
+    goal: minimize
+    units: nm
+
+scalarization:
+  method: weighted_sum
+  weights:
+    thickness_nm: 1.0
+    roughness_nm: 0.2
+
+constraint_plugin:
+  module: pem.adapters.demo_constraints
+  function: is_feasible

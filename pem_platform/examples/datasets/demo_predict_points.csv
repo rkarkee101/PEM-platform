@@ -1,0 +1,6 @@
+temperature_C,pressure_mTorr,rf_power_W,gas_ratio,chamber
+160,10,50,0.2,A
+180,20,100,0.35,A
+200,30,150,0.5,B
+220,40,200,0.65,B
+240,15,150,0.8,A
