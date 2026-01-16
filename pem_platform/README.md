@@ -40,7 +40,7 @@ pem_platform/
     cli.py       # CLI entrypoint
 ```
 
-If you were expecting the conceptual layout shown earlier (for example `core/schema.py`, `surrogate/gpr_sklearn.py`, etc.), PEM Platform implements the same concepts but uses a Python package layout that groups features into subpackages (`core/`, `doe/`, `model/`, `optimize/`, `rag/`, `viz/`).
+
 
 ---
 
