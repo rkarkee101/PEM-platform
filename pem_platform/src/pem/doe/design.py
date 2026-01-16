@@ -163,12 +163,24 @@ def plackett_burman(cfg: ProjectConfig) -> DesignResult:
 def latin_hypercube(cfg: ProjectConfig, *, n_samples: int, seed: Optional[int] = None) -> pd.DataFrame:
     """Generate LHS samples in natural units for numeric factors."""
 
-    rng = np.random.default_rng(seed)
+    
     factors = _design_factors(cfg)
     if not factors:
         raise ValueError("No numeric factors available for design.")
+        
+    if seed is None:
+        random_state = None
+    elif isinstance(seed, (int,np.integer)):
+        random_state=int(seed)
+    elif isinstance(seed, np.random.RandomState):
+        random_state=seed
+    elif isinstance(seed, np.random.Generator):
+        random_state=np.random.RandomState(seed.integers(0,2**32 -1, dtype=np.uint32).item())
+    else:
+        random_state=int(seed)
+        
 
-    unit = lhs(len(factors), samples=n_samples, random_state=rng)
+    unit = lhs(len(factors), samples=n_samples, random_state=random_state)
 
     out = {}
     for i, name in enumerate(factors):
