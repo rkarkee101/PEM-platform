@@ -49,7 +49,7 @@ pem_platform/
 ### Development install from source
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/rkarkee101/PEM-platform.git
 cd pem-platform
 
 python -m venv .venv
